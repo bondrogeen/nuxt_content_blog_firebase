@@ -8,6 +8,10 @@ Blog template on nuxt content, firebase and vuetify
 `npm run build`
 `npm run static` 
 
+
+edit the [.env](https://github.com/bondrogeen/nuxt_content_blog_firebase/blob/main/.env) file firebase setting 
+
+
 Rules firebase Realtime Database
 
 ```json
@@ -81,28 +85,6 @@ Rules firebase Realtime Database
   }
 }
 ```
-
-
-```text[.env]
-
-BASE_URL=https://best-blog.com
-
-BLOG_TITLE=best-blog.com - larem proident
-BLOG_DESCRIPTION=Quis irure quis proident pariatur minim est nisi nisi nisi. Labore in Lorem dolor nisi proident sint dolor laboris
-
-# Settings page
-BLOG_POSTS_SIZE=5
-
-# you settings firebase
-API_KEY=XXXXXxxxxXXXxxxXXxxxXXXxXXXXXXXXXXXXSX
-AUTH_DOMAIN=nuxt-content-blog-firebase.firebaseapp.com
-PROJECT_ID=nuxt-content-blog-firebase
-STORAGE_BUCKET=nuxt-content-blog-firebase.appspot.com
-MESSAGING_SENDER_ID=123456578965
-APP_ID=X:XXXXXXXXXXXX:xxx:xxxxxxxxxxxxxxxxxxx
-MEASUREMENT_ID=X-XXXXXXXXXX
-```
-
 
 #### 0.0.1
 * (bondrogeen) initial release
