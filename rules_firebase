@@ -1,0 +1,69 @@
+{
+  "rules": {
+    "users": {
+      ".read": "root.child('users/'+ auth.uid +'/admin').val() === true",
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid",
+        "create": {
+          ".validate": true,
+          ".write": "$uid === auth.uid"
+        },
+        "email": {
+          ".validate": true,
+          ".write": "$uid === auth.uid"
+        },
+      	"uid": {
+          ".validate": true,
+          ".write": "$uid === auth.uid"
+        },
+        "name": {
+          ".validate": true,
+          ".write": "$uid === auth.uid"
+        },
+      	"surname": {
+          ".write": "$uid === auth.uid"
+        },
+        "avatar": {
+          ".write": "$uid === auth.uid"
+        },
+        "lastLogin": {
+          ".write": "$uid === auth.uid"
+        },
+        "admin": {
+          ".write": "root.child('users/'+ auth.uid +'/admin').val() === true"
+        },
+        "verified": {
+          ".write": "root.child('users/'+ auth.uid +'/admin').val() === true"
+        }
+      }
+    },
+    "ratings": {
+      ".read": true,
+      "$title": {
+        ".read": true,
+          "$uid": {
+            ".read": true,
+            ".write": "$uid === auth.uid"  
+        	}
+      }
+    },
+    "comments": {
+      ".read": true,
+      ".write": "root.child('users/'+ auth.uid +'/admin').val() === true",
+      ".indexOn": "title",
+      "$items": {
+        ".read": true,
+        "name": { ".write": "auth != null && !data.exists()" },
+        "title": { ".write": "auth != null && !data.exists()" },
+        "comment": { ".write": "auth != null && !data.exists()" },
+        "timestamp": { ".write": "auth != null && !data.exists()" },
+        "avatar": { ".write": "auth != null && !data.exists()" },
+        "uid": { ".write": "auth != null && !data.exists()" },
+        "reply": { ".write": "auth != null && !data.exists()" },
+        "verified": {
+          ".write": "root.child('users/'+ auth.uid +'/admin').val() === true ||	root.child('users/'+ auth.uid +'/verified').val() === true"
+        }
+      }
+    }
+  }
+}
